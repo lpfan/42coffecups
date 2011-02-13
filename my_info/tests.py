@@ -3,14 +3,18 @@ from django.test import TestCase
 from models import MyInfo
 
 class ModelTest(TestCase):    
-  fixtures = ['my_info.json']
+  fixtures = ['initial_data.json']
   info = Info.objects.get(pk=1)
   def testMyInfo(self):
     '''
       test data loaded from fixtures
     '''
-    for arg in info:
-      self.assertTrue(arg)
+    self.assertTrue(info.surname)
+    self.assertTrue(info.name)
+    self.assertTrue(info.bday)
+    self.assertTrue(info.contacts)
+    self.assertTrue(info.short_story)
+    
 
 class ViewTest(TestCase):
   '''
