@@ -4,7 +4,7 @@ from models import MyInfo
 
 class ModelTest(TestCase):    
   fixtures = ['initial_data.json']
-  info = Info.objects.get(pk=1)
+  info = MyInfo.objects.get(pk=1)
   def testMyInfo(self):
     '''
       test data loaded from fixtures
