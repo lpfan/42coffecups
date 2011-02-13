@@ -1,4 +1,4 @@
-from django.generic.simple import direct_to_template
+from django.views.generic.simple import direct_to_template
 from models import MyInfo
 
 def index(request):

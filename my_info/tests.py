@@ -9,11 +9,11 @@ class ModelTest(TestCase):
     '''
       test data loaded from fixtures
     '''
-    self.assertTrue(info.surname)
-    self.assertTrue(info.name)
-    self.assertTrue(info.bday)
-    self.assertTrue(info.contacts)
-    self.assertTrue(info.short_story)
+    self.assertTrue(self.info.surname)
+    self.assertTrue(self.info.name)
+    self.assertTrue(self.info.bday)
+    self.assertTrue(self.info.contacts)
+    self.assertTrue(self.info.short_story)
     
 
 class ViewTest(TestCase):
