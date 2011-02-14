@@ -1,0 +1,27 @@
+html {
+   font-size:100%;
+}
+
+body {
+  font:100 62.5% Verdana;
+}
+
+.info{
+  font:100 1.2em Verdana;
+  width:965px;
+  margin:5px;
+  float:left;
+  padding:2px;
+  box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;  
+    -moz-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;  
+    -webkit-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+}
+
+  .info img {
+    float:left;
+  }
+  
+  .info h1 {
+    font:800 1.4em Tahoma;
+    color: #999999;
+  }
