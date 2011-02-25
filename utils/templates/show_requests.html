@@ -1,0 +1,20 @@
+{% extends "base.html"%}
+
+{%block title%} Request Holder {%endblock%}
+
+{% block content %}
+
+{% if requests %}
+  <ul>
+  {% for el in requests %}
+     <li>{{el.host}}</li>
+     <li>{{el.path}}</li>
+     <li>{{el.method}}</li>
+     <li>{{el.user}}</li>
+     <li>{{el.date}}</li>
+  {%endfor%}
+  </ul>
+{%else%}
+
+{%endif%}
+{% endblock %}

@@ -6,5 +6,5 @@ class RequestStore(models.Model):
   host = models.CharField(max_length=255)
   path = models.CharField(max_length=255)
   method = models.CharField(max_length=100)
-  user = models.ForeignKey(User,blanck=True, None=True)
+  user = models.ForeignKey(User, blank=True, null=True)
   date = models.DateTimeField(default=datetime.now() )
