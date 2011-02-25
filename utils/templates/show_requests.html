@@ -3,18 +3,21 @@
 {%block title%} Request Holder {%endblock%}
 
 {% block content %}
-
+<div class="requests">
 {% if requests %}
   <ul>
-  {% for el in requests %}
+  {%for el in requests%}
+  
      <li>{{el.host}}</li>
      <li>{{el.path}}</li>
      <li>{{el.method}}</li>
      <li>{{el.user}}</li>
      <li>{{el.date}}</li>
+  
   {%endfor%}
   </ul>
 {%else%}
-
+  <h1>No requests was maded</h1>
 {%endif%}
+</div>
 {% endblock %}
