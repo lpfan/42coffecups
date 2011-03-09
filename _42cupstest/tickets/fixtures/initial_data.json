@@ -1,6 +1,6 @@
 [
   {
-    "model": "my_info.myinfo",
+    "model": "tickets.myinfo",
     "pk": 1,
     "fields": {
       "surname"     : "Щетінін",
