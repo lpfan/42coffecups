@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{%block content %}
+
+<div class="info">
+    <img src="media/img/me.png" alt="" />
+    <h1>Personal info</h1>
+    <p>{{info.name}} {{info.surname}} </p>
+    
+    <ul>
+      <li>Дата народження: {{info.bday}}</li>
+      <li>Контакти: {{info.contacts}}</li>
+      <li>{{info.short_story}}</li>
+    </ul>
+
+</div>
+
+{% endblock %}
