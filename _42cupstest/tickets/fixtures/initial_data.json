@@ -1,0 +1,13 @@
+[
+  {
+    "model": "my_info.myinfo",
+    "pk": 1,
+    "fields": {
+      "surname"     : "Щетінін",
+      "name"        : "Міша",
+      "bday"        : "1987-10-30",
+      "contacts"    : "jabber: lpfan@jabber.ru",
+      "short_story" : "I don't know how i got this way, I'll never be alright"
+    }
+  }
+]
