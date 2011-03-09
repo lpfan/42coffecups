@@ -1,5 +1,5 @@
 from django.conf.urls.defaults import *
 
-urlpatterns = patterns('views',
+urlpatterns = patterns('tickets.views',
     url('contact/$', 'contact'),
     )
