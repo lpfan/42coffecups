@@ -6,6 +6,41 @@ body {
   font:100 62.5% Verdana;
 }
 
+.wrap{
+	margin:0 auto;
+	width:965px;
+	}
+
+h1 {
+	color:#003366;
+	font:100 1.8em Verdana, Geneva, sans-serif;
+	}
+h1 span {
+	font-weight:800;
+	text-decoration:underline;
+	}
+
+.mainmenu {
+	list-style:none;
+	}
+.mainmenu li {
+	border:1px solid #003366;
+	float:left;
+	padding:4px;
+	width:150px;
+	}
+.mainmenu a {
+	color:#333;
+	text-decoration:none;
+	font:800 1.2em Verdana;
+	}
+	
+
+
+.cup{
+	float:left;
+	}
+
 .info{
   font:100 1.2em Verdana;
   width:965px;
