@@ -26,6 +26,7 @@ h1 span {
 .mainmenu li {
 	border:1px solid #003366;
 	float:left;
+	margin-right:2px;
 	padding:4px;
 	width:150px;
 	}
@@ -61,18 +62,13 @@ h1 span {
     color: #999999;
   }
   
-  .requests{
-    width:100%;
-    float:left;
-  }
-  .requests ul {
-     width:100%;
-     list-type:none;
-     margin-top:15px;
-     background:#003366;
-  }
-  .requests ul li {
-    float:left;
-    width:19%;
-    font:100 1.2em Verdana;
-  }
+table{
+	color:#000;
+	font:100 1.1em Verdana;
+	}
+	
+thead{
+	color: #003366;
+	font:800 1.2em Verdana;
+	text-align:center;
+	}

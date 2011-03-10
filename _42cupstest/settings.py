@@ -78,6 +78,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'tickets.middleware.RequestStoreWare',
 )
 
 ROOT_URLCONF = '_42cupstest.urls'
