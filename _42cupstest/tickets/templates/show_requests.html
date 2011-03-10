@@ -1,0 +1,37 @@
+{%extends "base.html" %}
+
+{% block content %}
+
+<div class="info">
+
+{% if requests %}
+	<h1><span>Stored requests</span></h1>
+   <table>  
+    <thead>  
+        <tr>  
+            <td>host</td>  
+            <td>path</td>
+            <td>method</td>
+            <td>user</td>
+            <td>date</td>  
+        </tr>  
+    </thead>  
+    <tbody> 
+    {%for el in requests%} 
+        <tr>  
+            <td>{{el.host}}</td>
+            <td>{{el.path}}</td>
+            <td>{{el.method}}</td>
+            <td>{{el.user}}</td>
+            <td>{{el.date}}</td>  
+        </tr>
+    {%endfor%}
+    </tbody>  
+</table>  
+{%else%}
+  <h1>No requests was maded</h1>
+{%endif%}
+
+</div>
+
+{% endblock %}
