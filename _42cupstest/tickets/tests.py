@@ -22,4 +22,11 @@ class RequestStoreTest(TestCase):
     resp = client.get('/request_store/')
     self.assertEqual(resp.status_code, 200)
     req_store = RequestStore.objects.get(path = resp.request["PATH_INFO"])
-    self.assertTrue(req_store) 
+    self.assertTrue(req_store)
+    
+class ContextProcessorTest(TestCase):
+    def testC_Processor(self):
+         client = Client()
+         resp = client.get('/index/')
+         self.assertEqual(resp.status_code, 200)
+         self.assertTrue(resp.context['settings'], "Your context-processor didn't add settings to template-context")
