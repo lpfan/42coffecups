@@ -10,5 +10,8 @@ def contact(request, template_name="contact.html"):
     return direct_to_template(request, template_name, {"title":'contact', "info":info})
 
 def request_store(request, template_name="show_requests.html"):
-  requests = RequestStore.objects.all()
-  return direct_to_template(request, template_name, {'requests':requests})
+    requests = RequestStore.objects.all()
+    return direct_to_template(request, template_name, {'requests':requests, 'title':"stored requests"})
+  
+def show_settings(request, template_name="show_settings.html"):
+    return direct_to_template(request, template_name, {'title':"show project settings"})    
