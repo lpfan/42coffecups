@@ -3,7 +3,30 @@
 {% block content %}
 
 <div class="info">
- {{settings.MEDIA_ROOT}}
+	<h1><span>Some project settings</span></h1>
+    <table>  
+    <thead>  
+        <tr>  
+            <td>value</td>  
+            <td>settings</td> 
+        </tr>  
+    </thead>  
+    <tbody> 
+        <tr>  
+            <td>{{settings.MEDIA_ROOT}}</td>
+            <td>Media root</td>
+        </tr>
+        <tr>  
+            <td>{{settings.MEDIA_URL}}</td>
+            <td>Media ulr</td>
+        </tr>
+        <tr>  
+            <td>{{settings.ROOT_URLCONF}}</td>
+            <td>ROOT_URLCONF</td>
+        </tr>
+    </tbody>  
+</table>  
+    
 
 </div>
 
