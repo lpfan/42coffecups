@@ -37,7 +37,7 @@ class EditMyInfoTest(TestCase):
         client = Client()
         client.login(username="testuser", password="12345")
         resp = client.get('/editmyinfo/')
-        self.assertEqual(resp.status_code, 200)
+        self.assertEqual(resp.status_code, 302)
         data = {"surname" :"shchetinin",
                 "name"    : "misha",
                 "bday"    : "1989-11-26",
@@ -46,8 +46,10 @@ class EditMyInfoTest(TestCase):
         }
         form = EditMyInfoForm(data)
         self.assertTrue(form.is_valid())
-        data = {"bday"    : "1989-26-11"}
-        self.assertFlase(form.is_valid())
+        data = {"surname" : None,
+                "bday"    : "1989-26-11"}
+        form = EditMyInfoForm(data)
+        self.assertFalse(form.is_valid())
         self.assertTrue('surname' in form.errors)
         self.assertTrue('name' in form.errors)
         self.assertTrue('bday' in form.errors)

@@ -1,6 +1,8 @@
 from django.views.generic.simple import direct_to_template
+from django.contrib.auth.decorators import login_required
 
 from models import MyInfo, RequestStore
+from forms import EditMyInfoForm
 
 def index(request, template_name="index.html"):
     return direct_to_template(request, template_name, {"title":'index'})
@@ -14,4 +16,12 @@ def request_store(request, template_name="show_requests.html"):
     return direct_to_template(request, template_name, {'requests':requests, 'title':"stored requests"})
   
 def show_settings(request, template_name="show_settings.html"):
-    return direct_to_template(request, template_name, {'title':"show project settings"})    
+    return direct_to_template(request, template_name, {'title':"show project settings"})
+
+@login_required
+def edit_my_info(request, template_name="editpage.html"):
+    form = EditMyInfoForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+    return direct_to_template(request, template_name, {"form":form, "title":"Edit page"})
+        
