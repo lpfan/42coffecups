@@ -17,4 +17,5 @@ urlpatterns = patterns('',
     ),
     url(r'index/$', 'tickets.views.index'),
     url(r'^', include("tickets.urls")),
+    url(r'^accounts/login/$', 'django.contrib.auth.views.login'),
 )

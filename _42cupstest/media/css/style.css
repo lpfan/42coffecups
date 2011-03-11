@@ -62,6 +62,11 @@ h1 span {
     color: #999999;
   }
   
+  .info h1 a {
+  	color:#003366;
+  	text-decoration:none;
+  	}
+  	
 table{
 	color:#000;
 	font:100 1.1em Verdana;

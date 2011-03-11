@@ -2,6 +2,7 @@ from django.test import TestCase
 from django.test import Client
 
 from models import MyInfo, RequestStore
+from forms import EditMyInfoForm
 
 class ModelTest(TestCase):    
   fixtures = ['initial_data.json']
@@ -30,3 +31,27 @@ class ContextProcessorTest(TestCase):
          resp = client.get('/index/')
          self.assertEqual(resp.status_code, 200)
          self.assertTrue(resp.context['settings'], "Your context-processor didn't add settings to template-context")
+         
+class EditMyInfoTest(TestCase):
+    def testEditPage(self):
+        client = Client()
+        client.login(username="testuser", password="12345")
+        resp = client.get('/editmyinfo/')
+        self.assertEqual(resp.status_code, 302)
+        data = {"surname" :"shchetinin",
+                "name"    : "misha",
+                "bday"    : "1989-11-26",
+                "contacts": "skype_id: pro-finder",
+                "short_story": "All because of you I belive in angels. Not a kind with wings. No, not I kind with halos."
+        }
+        form = EditMyInfoForm(data)
+        self.assertTrue(form.is_valid())
+        data = {"surname" : None,
+                "bday"    : "1989-26-11"}
+        form = EditMyInfoForm(data)
+        self.assertFalse(form.is_valid())
+        self.assertTrue('surname' in form.errors)
+        self.assertTrue('name' in form.errors)
+        self.assertTrue('bday' in form.errors)
+        self.assertTrue('contacts' in form.errors)
+        self.assertTrue('short_story' in form.errors)
