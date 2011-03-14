@@ -1,5 +1,13 @@
 {% extends "base.html" %}
 
+{% block script %}
+	<script>
+		$(function(){
+			$("#id_bday").datepicker();
+		});
+	</script>
+{% endblock %}
+
 {% block content %}
 
 <div class="info">
