@@ -4,6 +4,10 @@
 	<script>
 		$(function(){
 			$("#id_bday").datepicker();
+			$('#editForm').submit(function(){
+				$(this).ajaxSubmit();
+				return false;
+            });
 		});
 	</script>
 {% endblock %}
@@ -12,7 +16,7 @@
 
 <div class="info">
 
-	<form action="" method="POST">{% csrf_token %}
+	<form action="" method="POST" id="editForm">{% csrf_token %}
 		{{form.as_p}}
 		<input type="submit" value="save" />
 	</form>
