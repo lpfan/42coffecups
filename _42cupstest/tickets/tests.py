@@ -57,3 +57,10 @@ class EditMyInfoTest(TestCase):
         self.assertTrue('contacts' in form.errors)
         self.assertTrue('short_story' in form.errors)
         
+    def testReverseForm(self):
+        form = EditMyInfoForm()
+        field_list = [key for key in form.fields]
+        self.assertEqual(field_list[0], 'short_story')
+        self.assertEqual(field_list[1], 'bday')
+        
+        

@@ -20,7 +20,7 @@ class EditMyInfoForm(forms.ModelForm):
             for key in arg:
                 field_list.append(key)
         field_list.reverse()
-        fields = tuple(field_list[1:])
+        fields = tuple(field_list)
         widgets = {
                    'bday':CalendarWidget,
                    }
