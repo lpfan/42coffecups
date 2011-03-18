@@ -14,6 +14,14 @@ class CalendarWidget(forms.TextInput):
 class EditMyInfoForm(forms.ModelForm):
     class Meta:
         model = MyInfo
+        info = MyInfo.objects.all()
+        field_list=list()
+        for arg in info.values()[:1]:
+            for key in arg:
+                field_list.append(key)
+        field_list.reverse()
+        fields = tuple(field_list)
         widgets = {
                    'bday':CalendarWidget,
                    }
+        
