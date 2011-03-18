@@ -5,7 +5,17 @@
 		$(function(){
 			$("#id_bday").datepicker();
 			$('#editForm').submit(function(){
-				$(this).ajaxSubmit();
+				$(this).ajaxSubmit({
+					beforeSend: function(){
+						$('.progress').show();
+						$('input:submit').attr("disabled","disabled");
+					},
+					success : function() {
+						$('.progress').hide();
+						$('input:submit').removeAttr("disabled");
+						
+					},
+				});
 				return false;
             });
 		});
@@ -21,6 +31,10 @@
 		<input type="submit" value="save" />
 	</form>
 
+</div>
+
+<div class="progress">
+	hferohglerhlguierhlguierghluierfhlerfhlreiufh	
 </div>
 
 {% endblock %}
