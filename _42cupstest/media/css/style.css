@@ -67,6 +67,17 @@ h1 span {
   	text-decoration:none;
   	}
   	
+   .progress {
+   		background:#000 url(../../media/images/under_construction.jpg) no-repeat;
+   		display:none;
+   		height:300px;
+   		left:50%;
+   		margin:-150px 0 0 -250px;
+   		position:absolute;
+   		top:50%;
+   		width:500px;
+   		}
+  	
 table{
 	color:#000;
 	font:100 1.1em Verdana;

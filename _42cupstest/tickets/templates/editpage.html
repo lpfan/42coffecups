@@ -1,14 +1,40 @@
 {% extends "base.html" %}
 
+{% block script %}
+	<script>
+		$(function(){
+			$("#id_bday").datepicker();
+			$('#editForm').submit(function(){
+				$(this).ajaxSubmit({
+					beforeSend: function(){
+						$('.progress').show();
+						$('input:submit').attr("disabled","disabled");
+					},
+					success : function() {
+						$('.progress').hide();
+						$('input:submit').removeAttr("disabled");
+						
+					},
+				});
+				return false;
+            });
+		});
+	</script>
+{% endblock %}
+
 {% block content %}
 
 <div class="info">
 
-	<form action="" method="POST">{% csrf_token %}
+	<form action="" method="POST" id="editForm">{% csrf_token %}
 		{{form.as_p}}
 		<input type="submit" value="save" />
 	</form>
 
+</div>
+
+<div class="progress">
+	hferohglerhlguierhlguierghluierfhlerfhlreiufh	
 </div>
 
 {% endblock %}

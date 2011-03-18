@@ -2,10 +2,17 @@
 <html>
   <head>
     <title>{{title}}</title>
-    <link rel="stylesheet" href="media/css/style.css" />
+    {% if form.media %}
+    	{{form.media}}
+    	<script src="media/lib/jquery.form.js"></script>
+    {% endif %}
+    <link rel="stylesheet" href="media/css/style.css" />    
   </heda>
 
   <body>
+  	{% block script %}
+  	
+  	{% endblock %}
   	<div class="wrap">
 	    {%block content%}
 	

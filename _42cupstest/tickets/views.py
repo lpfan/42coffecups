@@ -1,6 +1,6 @@
 from django.views.generic.simple import direct_to_template
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 
 from models import MyInfo, RequestStore
 from forms import EditMyInfoForm
@@ -26,7 +26,7 @@ def edit_my_info(request, template_name="editpage.html"):
         form = EditMyInfoForm(request.POST, instance=info)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect("/contact/")
+            return HttpResponseRedirect('/contact/')
     form = EditMyInfoForm(instance=info)    
     return direct_to_template(request, template_name, {"form":form, "title":"Edit page"})
         

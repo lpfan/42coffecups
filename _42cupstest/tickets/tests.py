@@ -1,5 +1,4 @@
-from django.test import TestCase
-from django.test import Client
+from django.test import TestCase, Client
 
 from models import MyInfo, RequestStore
 from forms import EditMyInfoForm
@@ -33,10 +32,12 @@ class ContextProcessorTest(TestCase):
          self.assertTrue(resp.context['settings'], "Your context-processor didn't add settings to template-context")
          
 class EditMyInfoTest(TestCase):
-    def testEditPage(self):
+    def setUp(self):
         client = Client()
-        client.login(username="testuser", password="12345")
-        resp = client.get('/editmyinfo/')
+    
+    def testEditPage(self):
+        self.client.login(username="testuser", password="12345")
+        resp = self.client.get('/editmyinfo/')
         self.assertEqual(resp.status_code, 302)
         data = {"surname" :"shchetinin",
                 "name"    : "misha",
@@ -55,3 +56,4 @@ class EditMyInfoTest(TestCase):
         self.assertTrue('bday' in form.errors)
         self.assertTrue('contacts' in form.errors)
         self.assertTrue('short_story' in form.errors)
+        
