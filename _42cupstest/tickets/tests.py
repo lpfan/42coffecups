@@ -77,16 +77,16 @@ class TemplateTagTest(TestCase):
         admin_edit_link = create_link(edit_obj)
         t = Template("{% load tags %} {% admin_edit edit_obj %}")
         result = t.render(Context({'edit_obj' : edit_obj}))
-        self.assertEqual(admin_edit_link, result)
+        self.assertEqual(admin_edit_link, result.lstrip())
         
 class CommandTest(TestCase):
     def testCommand(self):
-        output = StringIO()
+        output = StringIO.StringIO()
         sys.stdout = output
         call_command('showmodels')
         sys.stdout = sys.__stdout__
         for model in get_models():
-            self.assertNotEqual(output.getvalue().find(model), 0)
+            self.assertNotEqual(output.getvalue().find(model._meta.object_name), 0)
             
             
         
