@@ -71,8 +71,8 @@ class TemplateTagTest(TestCase):
         client.login(username="admin", password="12345")
         edit_obj = MyInfo.objects.get()
         admin_edit_link = create_link(edit_obj)
-        t = Template("{% load tags %} {% admin_edit edit_obj %}")
-        result = t.render(Context({'edit_obj' : edit_obj}))
-        self.assertEqual(admin_edit_link, result) 
+        t = Template("{% load tags %} {%admin_edit edit_obj%}")
+        result = t.render(Context({'edit_obj':edit_obj}))
+        self.assertEqual(admin_edit_link, result.lstrip()) 
         
         

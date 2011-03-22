@@ -6,7 +6,7 @@ register = template.Library()
 def create_link(obj):
     link = reverse('admin:%s_%s_change' % (obj._meta.app_label, obj._meta.module_name), args=[obj.id])
     #link = u'<a href="/admin/%s/%s/%i" title="edit">edit %s</a>'%(obj._meta.app_label, obj._meta.module_name, obj.id, obj.__unicode__())
-    return link
+    return unicode(link)
     
 class AdminEditNode(template.Node):
     def __init__(self, object):
