@@ -1,9 +1,13 @@
 from django.test import TestCase, Client
 from django.template import Template, Context
+from django.db.models import get_app, get_models
+from django.core.management import call_command
 
 from models import MyInfo, RequestStore
 from forms import EditMyInfoForm
 from templatetags.tags import create_link
+
+import sys, StringIO
 
 class ModelTest(TestCase):    
   fixtures = ['initial_data.json']
@@ -73,6 +77,19 @@ class TemplateTagTest(TestCase):
         admin_edit_link = create_link(edit_obj)
         t = Template("{% load tags %} {% admin_edit edit_obj %}")
         result = t.render(Context({'edit_obj' : edit_obj}))
-        self.assertEqual(admin_edit_link, result) 
+        self.assertEqual(admin_edit_link, result)
+        
+class CommandTest(TestCase):
+    def testCommand(self):
+        output = StringIO()
+        sys.stdout = output
+        call_command('showmodels')
+        sys.stdout = sys.__stdout__
+        for model in get_models():
+            self.assertNotEqual(output.getvalue().find(model), 0)
+            
+            
+        
+         
         
         
