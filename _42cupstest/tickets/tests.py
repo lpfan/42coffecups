@@ -3,11 +3,11 @@ from django.template import Template, Context
 from django.db.models import get_app, get_models
 from django.core.management import call_command
 
-from models import MyInfo, RequestStore
+from models import MyInfo, RequestStore, ModelsStatus
 from forms import EditMyInfoForm
 from templatetags.tags import create_link
 
-import sys, StringIO
+import sys, StringIO, datetime
 
 class ModelTest(TestCase):    
   fixtures = ['initial_data.json']
@@ -90,5 +90,15 @@ class CommandTest(TestCase):
         sys.stdout = sys.__stdout__
         for model in get_models():
             self.assertNotEqual(output.getvalue().find(model._meta.object_name), 0)
+            
+class SignalTest(TestCase):
+    def testSignalStore(self):
+        my_info = MyInfo.objects.get()
+        my_info.name = "Misha"
+        my_info.save()
+        models_status = ModelsStatus.objects.all().order_by('-date')[0]
+        self.assertEqual(models_status.status, 'edit')
+        self.assertEqual(my_info._meta.object_name, 'MyInfo')
+        
         
         
