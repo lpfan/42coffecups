@@ -1,11 +1,13 @@
 from django.test import TestCase, Client
+from django.template import Template, Context
 
 from models import MyInfo, RequestStore
 from forms import EditMyInfoForm
+from templatetags.tags import create_link
 
 class ModelTest(TestCase):    
   fixtures = ['initial_data.json']
-  info = MyInfo.objects.get(pk=1)
+  info = MyInfo.objects.get()
   def testMyInfo(self):
     '''
       test data loaded from fixtures
@@ -62,5 +64,15 @@ class EditMyInfoTest(TestCase):
         field_list = [key for key in form.fields]
         self.assertEqual(field_list[0], 'short_story')
         self.assertEqual(field_list[1], 'bday')
+        
+class TemplateTagTest(TestCase):
+    def testEditLinkTag(self):
+        client = Client()
+        client.login(username="admin", password="12345")
+        edit_obj = MyInfo.objects.get()
+        admin_edit_link = create_link(edit_obj)
+        t = Template("{% load tags %} {%admin_edit edit_obj%}")
+        result = t.render(Context({'edit_obj':edit_obj}))
+        self.assertEqual(admin_edit_link, result.lstrip()) 
         
         
