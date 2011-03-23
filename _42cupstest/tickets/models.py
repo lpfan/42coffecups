@@ -27,10 +27,13 @@ class ModelStatus(models.Model):
     model = models.CharField(max_length=50)
     
 def model_status_saver(sender, **kwargs):
-    if str(sender) == 'ModelStatus': 
+    #file = open('/home/misha/eclipse/_42cupstest/model_log','w+')
+    #file.write(sender._meta.object_name)
+    #file.close()
+    if sender._meta.object_name == 'ModelStatus': 
         return
     model_status = ModelStatus()
-    model_status.model = str(sender)
+    model_status.model = sender._meta.object_name
     model_status.action = 'create or edit'
     model_status.save()
 
