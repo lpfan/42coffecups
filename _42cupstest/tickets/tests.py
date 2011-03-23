@@ -3,7 +3,7 @@ from django.template import Template, Context
 from django.db.models import get_app, get_models
 from django.core.management import call_command
 
-from models import MyInfo, RequestStore, ModelsStatus
+from models import MyInfo, RequestStore, ModelStatus
 from forms import EditMyInfoForm
 from templatetags.tags import create_link
 
@@ -94,11 +94,11 @@ class CommandTest(TestCase):
 class SignalTest(TestCase):
     def testSignalStore(self):
         my_info = MyInfo.objects.get()
-        my_info.name = "Misha"
+        my_info.name = "testing signal work"
         my_info.save()
-        models_status = ModelsStatus.objects.all().order_by('-date')[0]
-        self.assertEqual(models_status.status, 'edit')
-        self.assertEqual(my_info._meta.object_name, 'MyInfo')
+        model_status = ModelStatus.objects.order_by('-date')[0]
+        self.assertEqual(model_status.action, 'create or edit')
+        self.assertEqual(model_status.model, 'MyInfo')
         
         
         
