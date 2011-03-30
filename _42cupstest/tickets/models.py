@@ -20,6 +20,10 @@ class RequestStore(models.Model):
   method = models.CharField(max_length=100)
   user = models.ForeignKey(User, blank=True, null=True)
   date = models.DateTimeField(default=datetime.now() )
+  priority = models.IntegerField(default=1)
+  
+  def __unicode__(self):
+      return "%s - %s" % (self.host, self.path)
   
 class ModelStatus(models.Model):
     date = models.DateTimeField(auto_now_add=True)
