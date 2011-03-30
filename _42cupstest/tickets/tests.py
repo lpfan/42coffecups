@@ -23,12 +23,14 @@ class ModelTest(TestCase):
     self.assertTrue(self.info.short_story)
 
 class RequestStoreTest(TestCase):
-  def testMiddleware(self):
-    client = Client()
-    resp = client.get('/request_store/')
-    self.assertEqual(resp.status_code, 200)
-    req_store = RequestStore.objects.get(path = resp.request["PATH_INFO"])
-    self.assertTrue(req_store)
+      def testMiddleware(self):
+        client = Client()
+        resp = client.get('/request_store/')
+        self.assertEqual(resp.status_code, 200)
+        req_store = RequestStore.objects.get(path = resp.request["PATH_INFO"])
+        self.assertTrue(req_store.priority)
+        self.assertTrue(req_store)
+          
     
 class ContextProcessorTest(TestCase):
     def testC_Processor(self):
