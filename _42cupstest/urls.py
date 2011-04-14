@@ -15,7 +15,8 @@ urlpatterns = patterns('',
     url(r'media/(?P<path>.*)$', 'django.views.static.serve',
         {'document_root': settings.MEDIA_ROOT }
     ),
-    url(r'index/$', 'tickets.views.index'),
     url(r'^', include("tickets.urls")),
     url(r'^accounts/login/$', 'django.contrib.auth.views.login'),
+    url(r'^$', 'tickets.views.index'),
+    
 )
