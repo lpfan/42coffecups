@@ -1,0 +1,90 @@
+html {
+   font-size:100%;
+}
+
+body {
+  font:100 62.5% Verdana;
+}
+
+.wrap{
+	margin:0 auto;
+	width:965px;
+	}
+
+h1 {
+	color:#003366;
+	font:100 1.8em Verdana, Geneva, sans-serif;
+	}
+h1 span {
+	font-weight:800;
+	text-decoration:underline;
+	}
+
+.mainmenu {
+	list-style:none;
+	}
+.mainmenu li {
+	border:1px solid #003366;
+	float:left;
+	margin-right:2px;
+	padding:4px;
+	width:150px;
+	}
+.mainmenu a {
+	color:#333;
+	text-decoration:none;
+	font:800 1.2em Verdana;
+	}
+	
+
+
+.cup{
+	float:left;
+	}
+
+.info{
+  font:100 1.2em Verdana;
+  width:965px;
+  margin:5px;
+  float:left;
+  padding:2px;
+  box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;  
+    -moz-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;  
+    -webkit-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+}
+
+  .info img {
+    float:left;
+  }
+  
+  .info h1 {
+    font:800 1.4em Tahoma;
+    color: #999999;
+  }
+  
+  .info h1 a {
+  	color:#003366;
+  	text-decoration:none;
+  	}
+  	
+   .progress {
+   		background:#000 url(../../media/images/under_construction.jpg) no-repeat;
+   		display:none;
+   		height:300px;
+   		left:50%;
+   		margin:-150px 0 0 -250px;
+   		position:absolute;
+   		top:50%;
+   		width:500px;
+   		}
+  	
+table{
+	color:#000;
+	font:100 1.1em Verdana;
+	}
+	
+thead{
+	color: #003366;
+	font:800 1.2em Verdana;
+	text-align:center;
+	}
