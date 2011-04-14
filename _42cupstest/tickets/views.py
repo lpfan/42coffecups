@@ -6,7 +6,7 @@ from models import MyInfo, RequestStore
 from forms import EditMyInfoForm
 
 def index(request, template_name="index.html"):
-    return direct_to_template(request, template_name, {"title":'index'})
+    return direct_to_template(request, template_name, {"title":'start page'})
 
 def contact(request, template_name="contact.html"):
     info = MyInfo.objects.get()
@@ -31,4 +31,8 @@ def edit_my_info(request, template_name="editpage.html"):
             return HttpResponseRedirect('/contact/')
     form = EditMyInfoForm(instance=info)    
     return direct_to_template(request, template_name, {"form":form, "title":"Edit page"})
-        
+
+def contacts(request, template_name="contact.html"):
+    info = MyInfo.objects.get()
+    return direct_to_template(request, template_name, {"title":'contact', "info":info})
+
