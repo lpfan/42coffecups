@@ -5,11 +5,15 @@ from django.db.models.signals import post_save, post_delete
 from datetime import datetime
 
 class MyInfo(models.Model):
+  
   surname = models.CharField(max_length=100)
   name = models.CharField(max_length=100)
   bday = models.DateField()
-  contacts = models.TextField()
-  short_story = models.TextField()
+  email = models.EmailField()
+  jabber_id = models.CharField(max_length=100)
+  skype_id = models.CharField(max_length=100)
+  other_contacts = models.TextField()
+  bio = models.TextField()
   
   def __unicode__(self):
     return "name: %s, surname: %s" % (self.name, self.surname)
