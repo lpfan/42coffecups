@@ -3,15 +3,30 @@
 {%block content %}
 
 <div class="info">
+    <h1>42 Coffee Cups Test Assignment</h1>
     <img src="media/images/me.png" alt="" />
-    <h1>Personal info</h1>
-    <p>{{info.name}} {{info.surname}} </p>
     
-    <ul>
-      <li>Дата народження: {{info.bday}}</li>
-      <li>Контакти: {{info.contacts}}</li>
-      <li>{{info.short_story}}</li>
-    </ul>
+    
+    <div class="column">
+        <h1>Personal info</h1>
+        
+        <div class="unit"><pre>Name</pre> {{info.name }}</div>
+        <div class="unit"><pre>Last name</pre> {{info.surname }}</div>
+        <div class="unit"><pre>Date of birth</pre> {{info.bday }}</div>
+        <div class="unit"><pre>Bio</pre> {{info.bio }}</div>
+        
+        
+    </div>
+    
+    <div class="column">
+        
+        <h1>Contacts</h1>
+        <div class="unit"><pre>Email:</pre> {{info.email}}</div>
+        <div class="unit"><pre>Jabber:</pre>{{info.jabber_id}}</div>
+        <div class="unit"><pre>Skype:</pre> {{info.skype_id}}</div>
+        <div class="unit"><pre>Other contacts:</pre> {{info.other_contacts}}</div>
+            
+    </div>
 
 </div>
 

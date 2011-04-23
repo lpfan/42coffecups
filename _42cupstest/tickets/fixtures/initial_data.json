@@ -3,11 +3,14 @@
     "model": "tickets.myinfo",
     "pk": 1,
     "fields": {
-      "surname"     : "Щетінін",
-      "name"        : "Міша",
-      "bday"        : "1987-10-30",
-      "contacts"    : "jabber: lpfan@jabber.ru",
-      "short_story" : "I don't know how i got this way, I'll never be alright"
+      "surname"        : "Shchetinin",
+      "name"           : "Misha",
+      "bday"           : "1987-10-30",
+      "email"          : "misha.shchetinin@gmail.com",
+      "jabber_id"      : "lpfan@jabber.ru",
+      "skype_id"       : "pro-finder",
+      "other_contacts" : "icq#:593308073",
+      "bio" : ""
     }
   }
 ]

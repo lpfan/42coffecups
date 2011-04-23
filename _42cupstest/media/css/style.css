@@ -52,6 +52,16 @@ h1 span {
     -moz-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;  
     -webkit-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
 }
+   pre {
+      font-size: 14px;
+      padding-top: 2px;
+      padding-right: 2px;
+      padding-bottom: 2px;
+      padding-left: 2px;
+      font-family: Georgia, serif;
+      font-weight:800;
+      line-height: 18px; 
+   }
 
   .info img {
     float:left;
@@ -66,6 +76,14 @@ h1 span {
   	color:#003366;
   	text-decoration:none;
   	}
+    
+   .column {
+      width:300px;
+      float:left;
+      padding-left:10px;
+   }
+   
+      
   	
    .progress {
    		background:#000 url(../../media/images/under_construction.jpg) no-repeat;
